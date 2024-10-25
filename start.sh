@@ -1,0 +1,1 @@
+gunicorn guia_ponto.wsgi:application --config gunicorn_config.py
