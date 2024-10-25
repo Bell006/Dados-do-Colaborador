@@ -1,0 +1,12 @@
+venv/
+Lib/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Ignorar outros arquivos desnecessários
+*.log
+*.env
