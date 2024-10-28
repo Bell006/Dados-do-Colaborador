@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap4
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import os
@@ -10,7 +10,7 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__, template_folder='../templates', static_folder='../static')
-    bootstrap = Bootstrap(app)
+    bootstrap = Bootstrap4(app)
 
     app.config['URL'] = 'https://drive.google.com/file/d/1GnjnNrRUGHJ9UtEOQO-sUB69KemfUGl4/view?usp=sharing'
 
