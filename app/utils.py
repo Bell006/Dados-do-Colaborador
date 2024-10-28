@@ -25,6 +25,6 @@ def get_google_sheets_service():
     return client
 
 # Adiciona dados à planilha
-def add_to_google_sheet(client, email, name):
+def add_to_google_sheet(client, email, name, date):
     sheet = client.open("Acessos").sheet1  
-    sheet.append_row([email, name])
+    sheet.append_row([email, name, date])
