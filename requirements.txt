@@ -2,5 +2,4 @@ Flask
 gspread
 oauth2client
 requests
-dotenv
-gunicorn
+python-dotenv
