@@ -1,13 +1,16 @@
 from flask import render_template, request, redirect, flash, current_app
 from app.utils import add_to_google_sheet
 from datetime import *
+import pytz
 
 def index():
     bootstrap = current_app.extensions['bootstrap']
     if request.method == 'POST':
         email = request.form.get('email')
         name = request.form.get('name')
-        date = datetime.now().strftime('%d-%m-%Y %H:%M')
+
+        br_timezone = pytz.timezone('America/Sao_Paulo')
+        date = datetime.now(br_timezone).strftime('%d-%m-%Y %H:%M')
 
         if not email or not name:
             flash('Todos os campos são obrigatórios.', 'error')
