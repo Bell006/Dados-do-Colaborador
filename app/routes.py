@@ -1,6 +1,5 @@
 from flask import render_template, request, redirect, flash, current_app
 from app.utils import add_to_google_sheet
-from flask_bootstrap import Bootstrap4
 
 def index():
     bootstrap = current_app.extensions['bootstrap']
