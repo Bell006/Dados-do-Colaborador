@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap4
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import os
+import json
 from dotenv import load_dotenv 
 
 load_dotenv()
@@ -19,9 +20,11 @@ def create_app():
         'https://www.googleapis.com/auth/drive'
     ]
     
-    # Credenciais a partir do arquivo JSON usando a variável de ambiente
-    creds_path = os.getenv('GOOGLE_CREDENTIALS_PATH')  # Obtem o caminho das credenciais
-    creds = ServiceAccountCredentials.from_json_keyfile_name(creds_path, scope)
+    # Carregar credenciais a partir da variável de ambiente
+    creds_json = os.environ.get('GOOGLE_CREDENTIALS_JSON')
+    creds_dict = json.loads(creds_json)
+    
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
     
     app.config['GOOGLE_CLIENT'] = client  # Armazena o cliente gspread na configuração do app
