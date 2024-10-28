@@ -29,8 +29,8 @@ def create_app():
     
     app.config['GOOGLE_CLIENT'] = client  # Armazena o cliente gspread na configuração do app
 
-    # Importar rotas
-    from .routes import index  # Adiciona as funções das rotas
-    app.add_url_rule('/', view_func=index, methods=['GET', 'POST'])  # Define a rota diretamente
+    # Importar rotas e passar bootstrap
+    from .routes import index  
+    app.add_url_rule('/', view_func=lambda: index(bootstrap), methods=['GET', 'POST'])  # Passa bootstrap para index
 
     return app
