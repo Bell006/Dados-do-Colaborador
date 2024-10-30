@@ -12,7 +12,7 @@ def create_app():
     app = Flask(__name__, template_folder='../templates', static_folder='../static')
     bootstrap = Bootstrap5(app)
 
-    app.config['URL'] = 'https://drive.google.com/file/d/1HX3I2s9gUXYKzzPywNLubP2HdP6eP1A5/view'
+    app.config['URL'] = 'https://drive.google.com/file/d/1apfi3Fr6AM2MviLiWMuqeExYD4tSVBWm/view'
 
     # Escopos para autenticação
     scope = [
